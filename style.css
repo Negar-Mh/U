@@ -1,0 +1,110 @@
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff0f5; /* Soft pink background */
+    overflow: hidden; /* Hide overflow to keep hearts contained */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    padding: 20px;
+}
+
+.main-text {
+    font-size: 1.8em;
+    line-height: 1.8;
+    color: #d6336c; /* Deep pink text */
+    margin-bottom: 40px;
+}
+
+.main-button, .back-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #ff69b4; /* Hot pink button */
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-button:hover, .back-button:hover {
+    background-color: #d6336c; /* Darker pink on hover */
+    transform: scale(1.05);
+}
+
+.surprise-title {
+    font-size: 2.5em;
+    color: #d6336c;
+    margin-bottom: 30px;
+}
+
+.sentences p {
+    font-size: 1.5em;
+    color: #555;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+.back-button {
+    margin-top: 40px;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff69b4;
+    transform: rotate(-45deg);
+    animation: float 15s infinite;
+    z-index: -1;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
